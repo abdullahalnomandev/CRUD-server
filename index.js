@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const objectId = require('mongodb').ObjectID
-const port = 3050;
+const port = 5000;
 
 
 require('dotenv').config()
@@ -27,7 +27,6 @@ client.connect(err => {
   })
 
   app.get("/userInfo",(req,res)=>{
-    
     userInfo.find({})
     .toArray((err,documents)=>{
       res.send(documents)
