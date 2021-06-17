@@ -13,9 +13,8 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ez7qy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-
 client.connect(err => {
-  const userInfo = client.db("my-task").collection("user");
+  const userInfo = client.db(process.env.DB_NAME).collection("user");
 
   app.post('/addUsers', (req, res) => {
     const users= req.body;
