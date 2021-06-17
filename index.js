@@ -41,13 +41,15 @@ client.connect(err => {
         res.send(result.deletedCount > 0)
       })
   })
+
+  app.get('/', (req, res) => {
+    res.send('Home page')
+  })
  
 });  
 
 
-app.get('/', (req, res) => {
-  res.send('Home page')
-})
+
 
 app.listen(port, () => {
   console.log(`app listening at ${ port}`)
