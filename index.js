@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const objectId = require('mongodb').ObjectID
-const port = 3050 || process.env.PORT ;
+const port = 3050;
 
 
 require('dotenv').config()
@@ -49,8 +49,4 @@ client.connect(err => {
 });  
 
 
-
-
-app.listen(port, () => {
-  console.log(`app listening at ${ port}`)
-})
+app.listen(process.env.PORT || port )
